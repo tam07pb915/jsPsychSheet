@@ -61,10 +61,12 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgAQAOYAAHAUAAAAFkdQT1MAGQAMAA
 
 
 
-<script src="jspsych-6.1.0/jspsych.js"></script>
-<script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
-<script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
-<script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+<script src="https://tam07pb915.github.io/jsPsychSheet/experiment/jspsych-6.1.0/jspsych.js"></script>
+<script src="https://tam07pb915.github.io/jsPsychSheet/experiment/jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+<script src="https://tam07pb915.github.io/jsPsychSheet/experiment/jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+<script src="https://tam07pb915.github.io/jsPsychSheet/experiment/jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+<script src="https://tam07pb915.github.io/jsPsychSheet/jspsychsheet.js"></script>
+<link rel="stylesheet" href="https://tam07pb915.github.io.github.io/jsPsychSheet/jspsychsheet.css"/>
 <script type="text/javascript">
     /* create timeline */
     var timeline = [];
@@ -77,7 +79,7 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgAQAOYAAHAUAAAAFkdQT1MAGQAMAA
     timeline.push(welcome);
 
     /* define instructions trial */
-    var instructions = {
+     var instructions = {
       type: "html-keyboard-response",
       stimulus: "<p>In this experiment, a circle will appear in the center " +
           "of the screen.</p><p>If the circle is <strong>blue</strong>, " +
@@ -85,9 +87,9 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgAQAOYAAHAUAAAAFkdQT1MAGQAMAA
           "<p>If the circle is <strong>orange</strong>, press the letter J " +
           "as fast as you can.</p>" +
           "<div style='width: 700px;'>"+
-          "<div style='float: left;'><img src='img/blue.png'></img>" +
+          "<div style='float: left;'><img src='https://tam07pb915.github.io/jsPsychSheet/experiment/img/blue.png'></img>" +
           "<p class='small'><strong>Press the F key</strong></p></div>" +
-          "<div class='float: right;'><img src='img/orange.png'></img>" +
+          "<div class='float: right;'><img src='https://tam07pb915.github.io/jsPsychSheet/experiment/img/orange.png'></img>" +
           "<p class='small'><strong>Press the J key</strong></p></div>" +
           "</div>"+
           "<p>Press any key to begin.</p>",
@@ -97,9 +99,10 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgAQAOYAAHAUAAAAFkdQT1MAGQAMAA
 
     /* test trials */
 
+          /* test trials */
     var test_stimuli = [
-      { stimulus: "img/blue.png", data: { test_part: 'test', correct_response: 'f' } },
-      { stimulus: "img/orange.png", data: { test_part: 'test', correct_response: 'j' } }
+      { stimulus: "https://tam07pb915.github.io/jsPsychSheet/experiment/img/blue.png", data: { test_part: 'test', correct_response: 'f' } },
+      { stimulus: "https://tam07pb915.github.io/jsPsychSheet/experiment/img/orange.png", data: { test_part: 'test', correct_response: 'j' } }
     ];
 
     var fixation = {
@@ -150,12 +153,12 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgAQAOYAAHAUAAAAFkdQT1MAGQAMAA
     timeline.push(debrief_block);
 
     /* start the experiment */
-    jsPsych.init({
-      timeline: timeline,
-      on_finish: function() {
-        jsPsych.data.displayData();
-      }
-    });
+   jsPsych.init({
+  timeline: timeline,
+  on_finish: function() {
+      jsPsychSheet.uploadData(jsPsych.data.get().csv());
+  }
+});
   
 </script>
 
